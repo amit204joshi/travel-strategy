@@ -39,6 +39,7 @@ import dy5 from "../../src/assets/dy5.jpg"
 import dy6 from "../../src/assets/dy6.jpg"
 import dy7 from "../../src/assets/dy7.jpg"
 import dy8 from "../../src/assets/dy8.jpg"
+import dy9 from "../../src/assets/dy9.jpg"
 import sm0 from "../../src/assets/sm0.jpg"
 import sm1 from "../../src/assets/sm1.jpg"
 import sm2 from "../../src/assets/sm2.jpg"
@@ -113,7 +114,7 @@ export default function Schedule() {
                                 <a
                                     href={`#${day.id}`}
                                     className="block px-2 py-1 rounded hover:bg-indigo-50 hover:text-indigo-500 text-gray-700"
-                                    onClick={() => setSidebarOpen(false)} // 点击后关闭侧边栏（小屏幕）
+                                    onClick={() => setSidebarOpen(false)}
                                 >
                                     {day.title}
                                 </a>
@@ -143,12 +144,11 @@ export default function Schedule() {
                                 <p className="text-gray-600 my-2">
                                     提前3小时到机场！
                                 </p>
-
                                 <div className="mt-4">
                                     <img
                                         src={flightTo1}
                                         alt="FlightTo1"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
                             </div>
@@ -168,7 +168,7 @@ export default function Schedule() {
                                     <img
                                         src={flightTo1}
                                         alt="FlightTo2"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
                                 <h3 className="text-lg text-black mt-4">
@@ -214,7 +214,7 @@ export default function Schedule() {
                                     <img
                                         src={jr1}
                                         alt="jr1"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
                                 <h3 className="text-lg text-black mt-4">
@@ -272,9 +272,6 @@ export default function Schedule() {
                             </div>
                             <div className="flex-1">
                                 <h2 className="text-xl font-semibold text-gray-800">午餐</h2>
-                                <h3 className="text-lg text-black mt-4">
-                                    🍱附近餐馆
-                                </h3>
                             </div>
                         </div>
 
@@ -438,9 +435,6 @@ export default function Schedule() {
                             </div>
                             <div className="flex-1">
                                 <h2 className="text-xl font-semibold text-gray-800">晚餐</h2>
-                                <h3 className="text-lg text-black mt-4">
-                                    🍱附近餐馆
-                                </h3>
                             </div>
                         </div>
                     </div>
@@ -463,7 +457,7 @@ export default function Schedule() {
                                     <img
                                         src={jr2}
                                         alt="jr2"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
                                 <p className="text-gray-600 my-2">
@@ -495,7 +489,7 @@ export default function Schedule() {
                                     <img
                                         src={site1}
                                         alt="site1"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
                                 <h2 className="text-xl font-semibold text-gray-800 mt-4">鲮友朝市（本地人去）</h2>
@@ -521,9 +515,6 @@ export default function Schedule() {
                                         ></iframe>
                                     </div>
                                 </div>
-                                <h3 className="text-lg text-black mt-4">
-                                    🦪附近餐馆
-                                </h3>
                             </div>
                         </div>
 
@@ -645,7 +636,7 @@ export default function Schedule() {
                                     <img
                                         src={jr3}
                                         alt="jr3"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
                             </div>
@@ -661,9 +652,6 @@ export default function Schedule() {
                             </div>
                             <div className="flex-1">
                                 <h2 className="text-xl font-semibold text-gray-800">札幌晚餐</h2>
-                                <h3 className="text-lg text-black mt-4">
-                                    🍱附近餐馆
-                                </h3>
                             </div>
                         </div>
                     </div>
@@ -685,9 +673,6 @@ export default function Schedule() {
                                 <p className="text-gray-600 my-2">
                                     12:00前退房
                                 </p>
-                                <h3 className="text-lg text-black mt-4">
-                                    🍱附近餐馆
-                                </h3>
                             </div>
                         </div>
 
@@ -705,7 +690,7 @@ export default function Schedule() {
                                     <img
                                         src={jr4}
                                         alt="jr4"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
                                 <h3 className="text-lg text-black mt-4">
@@ -781,9 +766,6 @@ export default function Schedule() {
                             </div>
                             <div className="flex-1">
                                 <h2 className="text-xl font-semibold text-gray-800">晚餐</h2>
-                                <h3 className="text-lg text-black mt-4">
-                                    🍱附近餐馆
-                                </h3>
                             </div>
                         </div>
                     </div>
@@ -813,7 +795,7 @@ export default function Schedule() {
                                     <img
                                         src={bus1}
                                         alt="bus1"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
                                 <h3 className="text-lg text-black mt-4">
@@ -844,7 +826,7 @@ export default function Schedule() {
                                     <img
                                         src={flightTo1}
                                         alt="flightTo1"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
                                 <h3 className="text-lg text-black mt-4 mb-2">
@@ -947,9 +929,6 @@ export default function Schedule() {
                             </div>
                             <div className="flex-1">
                                 <h2 className="text-xl font-semibold text-gray-800">晚餐</h2>
-                                <h3 className="text-lg text-black mt-4">
-                                    🍱附近餐馆
-                                </h3>
                             </div>
                         </div>
 
@@ -1046,7 +1025,7 @@ export default function Schedule() {
                                     <img
                                         src={dy1}
                                         alt="dy1"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
                                 <h3 className="text-lg text-black mt-4">
@@ -1061,7 +1040,7 @@ export default function Schedule() {
                                     <img
                                         src={dy2}
                                         alt="dy2"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
                                 <h3 className="text-lg text-black mt-4">
@@ -1078,7 +1057,7 @@ export default function Schedule() {
                                     <img
                                         src={dy3}
                                         alt="dy3"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
                                 <h3 className="text-lg text-black mt-4">
@@ -1118,19 +1097,26 @@ export default function Schedule() {
                                     <img
                                         src={dy4}
                                         alt="dy4"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
                                 <h3 className="text-lg text-black mt-4">
                                     🎇表演
                                 </h3>
                                 <p className="text-grey-600 my-2">
-                                    🩷巡游： 12:00和16:00<br />
-                                    烟花灯光秀：20:15<br />
+                                    🩷巡游： 14:00和16:05<br />
+                                    烟花灯光秀：19:15<br />
                                     💛动感大乐团~匠心小欢乐（ER）<br />
                                     米奇乐跳跳！同欢共舞！（ER）<br />
                                     达菲和伙伴们的非凡友谊（提前一个月预约）
                                 </p>
+                                <div className="mt-4">
+                                    <img
+                                        src={dy9}
+                                        alt="dy9"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
+                                    />
+                                </div>
                             </div>
                         </div>
 
@@ -1215,7 +1201,7 @@ export default function Schedule() {
                                     <img
                                         src={sm0}
                                         alt="sm0"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
                                 <p className="text-grey-600 my-2">
@@ -1288,9 +1274,6 @@ export default function Schedule() {
                             </div>
                             <div className="flex-1">
                                 <h2 className="text-xl font-semibold text-gray-800">午餐</h2>
-                                <h3 className="text-lg text-black mt-4">
-                                    🍱附近餐馆
-                                </h3>
                             </div>
                         </div>
 
@@ -1311,7 +1294,7 @@ export default function Schedule() {
                                     <img
                                         src={xl1}
                                         alt="xl1"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
                                 <h3 className="text-lg text-black mt-4">
@@ -1418,9 +1401,6 @@ export default function Schedule() {
                             </div>
                             <div className="flex-1">
                                 <h2 className="text-xl font-semibold text-gray-800">晚餐</h2>
-                                <h3 className="text-lg text-black mt-4">
-                                    🍱附近餐馆
-                                </h3>
                             </div>
                         </div>
                     </div>
@@ -1439,9 +1419,6 @@ export default function Schedule() {
                             </div>
                             <div className="flex-1">
                                 <h2 className="text-xl font-semibold text-gray-800">午餐</h2>
-                                <h3 className="text-lg text-black mt-4">
-                                    🍱附近餐馆
-                                </h3>
                             </div>
                         </div>
 
@@ -1462,7 +1439,7 @@ export default function Schedule() {
                                     <img
                                         src={dj4}
                                         alt="dj4"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
                             </div>
@@ -1478,9 +1455,6 @@ export default function Schedule() {
                             </div>
                             <div className="flex-1">
                                 <h2 className="text-xl font-semibold text-gray-800">晚餐</h2>
-                                <h3 className="text-lg text-black mt-4">
-                                    🍱附近餐馆
-                                </h3>
                             </div>
                         </div>
 
@@ -1498,7 +1472,7 @@ export default function Schedule() {
                                     <img
                                         src={dj5}
                                         alt="dj5"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
                                 <h3 className="text-lg text-black mt-4">
@@ -1563,7 +1537,7 @@ export default function Schedule() {
                                     <img
                                         src={bus2}
                                         alt="bus2"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
                                 <h3 className="text-lg text-black mt-4">
@@ -1590,9 +1564,6 @@ export default function Schedule() {
                             </div>
                             <div className="flex-1">
                                 <h2 className="text-xl font-semibold text-gray-800">午餐</h2>
-                                <h3 className="text-lg text-black mt-4">
-                                    🍱附近餐馆
-                                </h3>
                             </div>
                         </div>
 
@@ -1723,9 +1694,6 @@ export default function Schedule() {
                             </div>
                             <div className="flex-1">
                                 <h2 className="text-xl font-semibold text-gray-800">晚餐</h2>
-                                <h3 className="text-lg text-black mt-4">
-                                    🍱附近餐馆
-                                </h3>
                             </div>
                         </div>
                     </div>
@@ -1744,9 +1712,6 @@ export default function Schedule() {
                             </div>
                             <div className="flex-1">
                                 <h2 className="text-xl font-semibold text-gray-800">午餐</h2>
-                                <h3 className="text-lg text-black mt-4">
-                                    🍱附近餐馆
-                                </h3>
                             </div>
                         </div>
 
@@ -1767,7 +1732,7 @@ export default function Schedule() {
                                     <img
                                         src={jr5}
                                         alt="jr5"
-                                        className="rounded-lg shadow-md w-2/3 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
 
@@ -1803,6 +1768,7 @@ export default function Schedule() {
                         </div>
                     </div>
                 </CollapsibleSection>
+                <h1 className="text-2xl font-bold text-center mb-8">End</h1>
             </main>
         </div>
     );

@@ -7,7 +7,7 @@ const navigation = [
     { name: "主页", href: "/" },
     { name: "行程篇", href: "/schedules" },
     { name: "美食篇", href: "/foods" },
-    { name: "注意事项", href: "/tips" },
+    { name: "必备清单", href: "/lists" },
 ];
 
 export default function Navbar() {
