@@ -23,10 +23,10 @@ export default function RestaurantRecommendations() {
     }, {});
 
     return (
-        <div className="relative bg-white py-24 sm:py-32">
+        <div className="relative bg-white py-24">
             {/* Page heading */}
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="flex flex-col sm:flex-row justify-between items-center">
+                <div className="flex flex-row justify-between items-center">
                     <div className="max-w-2xl">
                         <h2 className="text-4xl font-bold text-gray-900 sm:text-6xl">
                             必吃榜
@@ -38,7 +38,7 @@ export default function RestaurantRecommendations() {
                         </p>
                     </div>
                     {/* Filter button (large screen display) */}
-                    <div className="hidden sm:flex space-x-4">
+                    <div className="sm:flex space-x-4">
                         <button
                             onClick={() => setFilterMode("region")}
                             className={`px-4 py-2 rounded ${filterMode === "region"
@@ -63,38 +63,60 @@ export default function RestaurantRecommendations() {
 
             {/* Menu button displayed under small screen */}
             <button
-                className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded shadow"
+                className="lg:hidden fixed top-4 left-2 z-50 p-2 bg-gray-700 text-white rounded shadow"
                 onClick={() => setSidebarOpen(!sidebarOpen)}
             >
-                {sidebarOpen ? "关闭定位" : "定位"}
+                <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 6h16M4 12h16M4 18h16"
+                    />
+                </svg>
             </button>
 
             {/* Sidebar */}
             <aside
-                className={`fixed top-24 bottom-0 left-0 z-40 w-38 bg-white p-4 rounded-r shadow-md border-r border-gray-200 ${sidebarOpen ? "block" : "hidden"
+                onClick={() => {
+                    if (window.innerWidth < 1024) {
+                        setSidebarOpen(false);
+                    }
+                }}
+                className={`fixed top-16 bottom-0 left-0 z-40 w-38 bg-white p-4 rounded-r shadow-md border-r border-gray-200 ${sidebarOpen ? "block" : "hidden"
                     } lg:block`}
             >
                 <nav className="sticky top-4">
                     <h4 className="text-lg font-bold text-gray-900 mb-4">快速定位</h4>
                     <ul className="space-y-2">
-                        {Object.keys(groupedRestaurants)
-                            .map((group) => (
-                                <li key={group}>
-                                    <a
-                                        href={`#${group.replace(/\s+/g, "-")}`}
-                                        className="block px-2 py-1 rounded hover:bg-indigo-50 hover:text-indigo-500 text-gray-700"
-                                        onClick={() => setSidebarOpen(false)}
-                                    >
-                                        {group}
-                                    </a>
-                                </li>
-                            ))}
+                        {Object.keys(groupedRestaurants).map((group) => (
+                            <li key={group}>
+                                <a
+                                    href={`#${group.replace(/\s+/g, "-")}`}
+                                    className="block px-2 py-1 rounded hover:bg-indigo-50 hover:text-indigo-500 text-gray-700"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        if (window.innerWidth < 1024) {
+                                            setSidebarOpen(false);
+                                        }
+                                    }}
+                                >
+                                    {group}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                 </nav>
             </aside>
 
             {/* Main body */}
-            <main className="lg:ml-40">
+            <main className="lg:ml-auto">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8 mx-40">
                     <div className="space-y-16">
                         {Object.keys(groupedRestaurants).map((group) => (
@@ -106,7 +128,6 @@ export default function RestaurantRecommendations() {
                                 {filterMode === "category" && foodImages[group] && (
                                     <div className="grid grid-cols-3 gap-4 mb-8">
                                         {foodImages[group].map((imgObj, index) => {
-                                            // 从对象中取出第一个值作为图片 URL
                                             const imgUrl = Object.values(imgObj)[0];
                                             return (
                                                 <img
@@ -120,7 +141,7 @@ export default function RestaurantRecommendations() {
                                     </div>
                                 )}
                                 {/* Restaurant card area */}
-                                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 w-3/4 mx-auto md:w-full">
                                     {groupedRestaurants[group].map((restaurant) => (
                                         <div
                                             key={restaurant.name}

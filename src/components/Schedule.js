@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import flightTo1 from "../../src/assets/flightTo1.png"
+import flightTo2 from "../../src/assets/flightTo2.png"
+import flightBack1 from "../../src/assets/flightBack1.png"
+import flightBack2 from "../../src/assets/flightBack2.png"
 import jr1 from "../../src/assets/NCA-Sapporo.png"
 import jr2 from "../../src/assets/Sapporo-Otaru.png"
 import jr3 from "../../src/assets/OTARU＞SAPPORO(JR).png"
@@ -92,18 +95,35 @@ export default function Schedule() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     return (
         <div className="relative">
-            {/* Sidebar */}
-            {/* Small Screen */}
+            {/* Sidebar button*/}
             <button
-                className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded shadow"
+                className="lg:hidden fixed top-4 left-2 z-50 p-2 bg-gray-700 text-white rounded shadow"
                 onClick={() => setSidebarOpen(!sidebarOpen)}
             >
-                {sidebarOpen ? "关闭定位" : "定位"}
+                <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 6h16M4 12h16M4 18h16"
+                    />
+                </svg>
             </button>
 
-            {/* Large Screen */}
+            {/* Sidebar */}
             <aside
-                className={`fixed top-24 bottom-0 left-0 z-40 w-38 bg-white p-4 rounded-r shadow-md border-r border-gray-200 ${sidebarOpen ? "block" : "hidden"
+                onClick={() => {
+                    if (window.innerWidth < 1024) {
+                        setSidebarOpen(false);
+                    }
+                }}
+                className={`fixed top-16 bottom-0 left-0 z-40 w-38 bg-white p-4 rounded-r shadow-md border-r border-gray-200 ${sidebarOpen ? "block" : "hidden"
                     } lg:block`}
             >
                 <nav className="sticky top-4">
@@ -114,7 +134,12 @@ export default function Schedule() {
                                 <a
                                     href={`#${day.id}`}
                                     className="block px-2 py-1 rounded hover:bg-indigo-50 hover:text-indigo-500 text-gray-700"
-                                    onClick={() => setSidebarOpen(false)}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        if (window.innerWidth < 1024) {
+                                            setSidebarOpen(false);
+                                        }
+                                    }}
                                 >
                                     {day.title}
                                 </a>
@@ -124,15 +149,41 @@ export default function Schedule() {
                 </nav>
             </aside>
 
+
             {/*Main content */}
 
-            <main className="mx-auto max-w-screen-lg px-4 py-8 px-4 mt-20">
+            <main className="mx-auto max-w-screen-lg px-4 py-8 px-4 mt-16">
                 <h1 className="text-2xl font-bold text-center mb-8">Start</h1>
                 {/*Day 1*/}
-                <CollapsibleSection id="day1" title="Day 1 启程">
+                <CollapsibleSection id="day1" title="Day 1 启程 (2.27-2.28)">
                     <div className="space-y-12">
                         {/* Step 1 */}
                         <div className="flex flex-col md:flex-row">
+                            <div className="flex items-center md:flex-col md:items-center md:mr-4 mb-4 md:mb-0">
+                                <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-full bg-sky-700 text-white font-bold mr-2 md:mr-0 md:mb-2">
+                                    1
+                                </div>
+                                <h2 className="md:hidden text-xl font-semibold text-gray-800">
+                                    西雅图➡️东京
+                                </h2>
+                                <div className="hidden md:block md:flex-1 w-px bg-gray-300" />
+                            </div>
+                            <div className="flex-1">
+                                <h2 className="hidden md:block text-xl font-semibold text-gray-800">
+                                    西雅图➡️东京
+                                </h2>
+                                <p className="text-gray-600 my-2">提前3小时到机场！</p>
+                                <div className="mt-4">
+                                    <img
+                                        src={flightTo1}
+                                        alt="FlightTo1"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* <div className="flex flex-col md:flex-row">
                             <div className="flex items-center md:flex-col md:items-center md:mr-4 mb-4 md:mb-0">
                                 <div className="w-8 h-8 flex items-center justify-center rounded-full bg-sky-700 text-white font-bold mr-2 md:mr-0 md:mb-2">
                                     1
@@ -152,7 +203,7 @@ export default function Schedule() {
                                     />
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
                         {/* Step 2 */}
                         <div className="flex flex-col md:flex-row">
@@ -166,7 +217,7 @@ export default function Schedule() {
                                 <h2 className="text-xl font-semibold text-gray-800">东京➡️北海道</h2>
                                 <div className="mt-4">
                                     <img
-                                        src={flightTo1}
+                                        src={flightTo2}
                                         alt="FlightTo2"
                                         className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
@@ -238,11 +289,11 @@ export default function Schedule() {
                                         <img
                                             src={hotel1}
                                             alt="hotel1"
-                                            className="rounded-lg shadow-md w-full h-auto"
+                                            className="rounded-lg shadow-md w-full h-96"
                                         />
                                     </div>
                                     {/* Courtyard Sapporo map */}
-                                    <div className="md:w-1/2 mt-4 md:mt-0 w-full h-64 md:h-96">
+                                    <div className="md:w-1/2 mt-4 md:mt-0 w-full h-64 md:h-96 ">
                                         <iframe
                                             title="Rin'yū Morning Market"
                                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2915.6583512147245!2d141.35462967663008!3d43.04861937113727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b29e0eac1d4d5%3A0x32ace636f5c883e1!2sCourtyard%20Sapporo!5e0!3m2!1szh-CN!2sus!4v1737948656942!5m2!1szh-CN!2sus"
@@ -260,7 +311,7 @@ export default function Schedule() {
                 </CollapsibleSection>
 
                 {/* Day 2 */}
-                <CollapsibleSection id="day2" title="Day 2 札幌一日游">
+                <CollapsibleSection id="day2" title="Day 2 札幌一日游 (3.1)">
                     <div className="space-y-12">
                         {/* Step 1 */}
                         <div className="flex flex-col md:flex-row">
@@ -441,7 +492,7 @@ export default function Schedule() {
                 </CollapsibleSection>
 
                 {/* Day 3 */}
-                <CollapsibleSection id="day3" title="Day 3 小樽一日游">
+                <CollapsibleSection id="day3" title="Day 3 小樽一日游 (3.2)">
                     <div className="space-y-12">
                         {/* Step 1 */}
                         <div className="flex flex-col md:flex-row">
@@ -457,7 +508,7 @@ export default function Schedule() {
                                     <img
                                         src={jr2}
                                         alt="jr2"
-                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-full h-auto"
                                     />
                                 </div>
                                 <p className="text-gray-600 my-2">
@@ -489,7 +540,7 @@ export default function Schedule() {
                                     <img
                                         src={site1}
                                         alt="site1"
-                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-96"
                                     />
                                 </div>
                                 <h2 className="text-xl font-semibold text-gray-800 mt-4">鲮友朝市（本地人去）</h2>
@@ -499,7 +550,7 @@ export default function Schedule() {
                                         <img
                                             src={site2}
                                             alt="site2"
-                                            className="rounded-lg shadow-md w-full h-auto"
+                                            className="rounded-lg shadow-md w-full h-96"
                                         />
                                     </div>
                                     {/* Rin'yū Morning Market map */}
@@ -636,7 +687,7 @@ export default function Schedule() {
                                     <img
                                         src={jr3}
                                         alt="jr3"
-                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
+                                        className="rounded-lg shadow-md w-full h-auto"
                                     />
                                 </div>
                             </div>
@@ -658,7 +709,7 @@ export default function Schedule() {
                 </CollapsibleSection>
 
                 {/* Day 4 */}
-                <CollapsibleSection id="day4" title="Day 4 登别温泉">
+                <CollapsibleSection id="day4" title="Day 4 登别温泉 (3.3)">
                     <div className="space-y-12">
                         {/* Step 1 */}
                         <div className="flex flex-col md:flex-row">
@@ -690,7 +741,7 @@ export default function Schedule() {
                                     <img
                                         src={jr4}
                                         alt="jr4"
-                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
+                                        className="rounded-lg shadow-md w-full h-auto"
                                     />
                                 </div>
                                 <h3 className="text-lg text-black mt-4">
@@ -772,7 +823,7 @@ export default function Schedule() {
                 </CollapsibleSection>
 
                 {/* Day 5 */}
-                <CollapsibleSection id="day5" title="Day 5 前往东京">
+                <CollapsibleSection id="day5" title="Day 5 前往东京 (3.4)">
                     <div className="space-y-12">
                         {/* Step 1 */}
                         <div className="flex flex-col md:flex-row">
@@ -795,7 +846,7 @@ export default function Schedule() {
                                     <img
                                         src={bus1}
                                         alt="bus1"
-                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-2/3 h-auto"
                                     />
                                 </div>
                                 <h3 className="text-lg text-black mt-4">
@@ -824,8 +875,8 @@ export default function Schedule() {
                                 <h2 className="text-xl font-semibold text-gray-800">新千岁机场➡️东京</h2>
                                 <div className="mt-4">
                                     <img
-                                        src={flightTo1}
-                                        alt="flightTo1"
+                                        src={flightBack1}
+                                        alt="flightBack1"
                                         className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
                                     />
                                 </div>
@@ -985,7 +1036,7 @@ export default function Schedule() {
                 </CollapsibleSection>
 
                 {/* Day 6 */}
-                <CollapsibleSection id="day6" title="Day 6 东京海洋迪士尼">
+                <CollapsibleSection id="day6" title="Day 6 东京海洋迪士尼 (3.5)">
                     <div className="space-y-12">
                         {/* Step 1 */}
                         <div className="flex flex-col md:flex-row">
@@ -1182,7 +1233,7 @@ export default function Schedule() {
                 </CollapsibleSection>
 
                 {/* Day 7 */}
-                <CollapsibleSection id="day7" title="Day 7 动漫巡礼">
+                <CollapsibleSection id="day7" title="Day 7 动漫巡礼 (3.6)">
                     <div className="space-y-12">
                         {/* Step 1 */}
                         <div className="flex flex-col md:flex-row">
@@ -1208,9 +1259,9 @@ export default function Schedule() {
                                     导航到新桥站。新桥站下车后，同站换乘海鸥线。买一个新桥到台场海滨公园。到站后就是A1点。
                                 </p>
                                 <div className="flex-1">
-                                    <div className="mt-4 flex flex-col md:flex-row md:space-x-4">
+                                    <div className="mt-4 flex flex-row md:space-x-4">
                                         {/* img1 */}
-                                        <div className="md:w-1/3">
+                                        <div className="w-1/3">
                                             <img
                                                 src={sm1}
                                                 alt="sm1"
@@ -1218,7 +1269,7 @@ export default function Schedule() {
                                             />
                                         </div>
                                         {/* img2 */}
-                                        <div className="md:w-1/3">
+                                        <div className="w-1/3">
                                             <img
                                                 src={sm2}
                                                 alt="sm2"
@@ -1226,7 +1277,7 @@ export default function Schedule() {
                                             />
                                         </div>
                                         {/* img3 */}
-                                        <div className="md:w-1/3">
+                                        <div className="w-1/3">
                                             <img
                                                 src={sm3}
                                                 alt="sm3"
@@ -1234,9 +1285,9 @@ export default function Schedule() {
                                             />
                                         </div>
                                     </div>
-                                    <div className="mt-4 flex flex-col md:flex-row md:space-x-4">
+                                    <div className="mt-4 flex flex-row md:space-x-4">
                                         {/* img1 */}
-                                        <div className="md:w-1/3">
+                                        <div className="w-1/3">
                                             <img
                                                 src={sm4}
                                                 alt="sm4"
@@ -1244,7 +1295,7 @@ export default function Schedule() {
                                             />
                                         </div>
                                         {/* img2 */}
-                                        <div className="md:w-1/3">
+                                        <div className="w-1/3">
                                             <img
                                                 src={sm5}
                                                 alt="sm5"
@@ -1252,7 +1303,7 @@ export default function Schedule() {
                                             />
                                         </div>
                                         {/* img3 */}
-                                        <div className="md:w-1/3">
+                                        <div className="w-1/3">
                                             <img
                                                 src={sm6}
                                                 alt="sm6"
@@ -1309,9 +1360,9 @@ export default function Schedule() {
                                     位置攻略
                                 </a>
                                 <div className="flex-1">
-                                    <div className="mt-4 flex flex-col md:flex-row md:space-x-4">
+                                    <div className="mt-4 flex flex-row md:space-x-4">
                                         {/* img1 */}
-                                        <div className="md:w-1/3">
+                                        <div className="w-1/3">
                                             <img
                                                 src={xl2}
                                                 alt="xl2"
@@ -1319,7 +1370,7 @@ export default function Schedule() {
                                             />
                                         </div>
                                         {/* img2 */}
-                                        <div className="md:w-1/3">
+                                        <div className="w-1/3">
                                             <img
                                                 src={xl3}
                                                 alt="xl3"
@@ -1327,7 +1378,7 @@ export default function Schedule() {
                                             />
                                         </div>
                                         {/* img3 */}
-                                        <div className="md:w-1/3">
+                                        <div className="w-1/3">
                                             <img
                                                 src={xl4}
                                                 alt="xl4"
@@ -1335,9 +1386,9 @@ export default function Schedule() {
                                             />
                                         </div>
                                     </div>
-                                    <div className="mt-4 flex flex-col md:flex-row md:space-x-4">
+                                    <div className="mt-4 flex flex-row md:space-x-4">
                                         {/* img1 */}
-                                        <div className="md:w-1/3">
+                                        <div className="w-1/3">
                                             <img
                                                 src={xl5}
                                                 alt="xl5"
@@ -1345,7 +1396,7 @@ export default function Schedule() {
                                             />
                                         </div>
                                         {/* img2 */}
-                                        <div className="md:w-1/3">
+                                        <div className="w-1/3">
                                             <img
                                                 src={xl6}
                                                 alt="xl6"
@@ -1353,7 +1404,7 @@ export default function Schedule() {
                                             />
                                         </div>
                                         {/* img3 */}
-                                        <div className="md:w-1/3">
+                                        <div className="w-1/3">
                                             <img
                                                 src={xl7}
                                                 alt="xl7"
@@ -1361,9 +1412,9 @@ export default function Schedule() {
                                             />
                                         </div>
                                     </div>
-                                    <div className="mt-4 flex flex-col md:flex-row md:space-x-4">
+                                    <div className="mt-4 flex flex-row md:space-x-4">
                                         {/* img1 */}
-                                        <div className="md:w-1/3">
+                                        <div className="w-1/3">
                                             <img
                                                 src={xl8}
                                                 alt="xl8"
@@ -1371,7 +1422,7 @@ export default function Schedule() {
                                             />
                                         </div>
                                         {/* img2 */}
-                                        <div className="md:w-1/3">
+                                        <div className="w-1/3">
                                             <img
                                                 src={xl9}
                                                 alt="xl9"
@@ -1379,7 +1430,7 @@ export default function Schedule() {
                                             />
                                         </div>
                                         {/* img3 */}
-                                        <div className="md:w-1/3">
+                                        <div className="w-1/3">
                                             <img
                                                 src={xl10}
                                                 alt="xl10"
@@ -1407,7 +1458,7 @@ export default function Schedule() {
                 </CollapsibleSection>
 
                 {/* Day 8 */}
-                <CollapsibleSection id="day8" title="Day 8 逛街买买买">
+                <CollapsibleSection id="day8" title="Day 8 逛街买买买 (3.7)">
                     <div className="space-y-12">
                         {/* Step 1 */}
                         <div className="flex flex-col md:flex-row">
@@ -1439,7 +1490,7 @@ export default function Schedule() {
                                     <img
                                         src={dj4}
                                         alt="dj4"
-                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
+                                        className="rounded-lg shadow-md w-full md:w-2/3 h-auto"
                                     />
                                 </div>
                             </div>
@@ -1514,7 +1565,7 @@ export default function Schedule() {
                 </CollapsibleSection>
 
                 {/* Day 9 */}
-                <CollapsibleSection id="day9" title="Day 9 富士山一日游">
+                <CollapsibleSection id="day9" title="Day 9 富士山一日游 (3.8)">
                     <div className="space-y-12">
                         {/* Step 1 */}
                         <div className="flex flex-col md:flex-row">
@@ -1537,7 +1588,7 @@ export default function Schedule() {
                                     <img
                                         src={bus2}
                                         alt="bus2"
-                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
+                                        className="rounded-lg shadow-md w-full h-auto"
                                     />
                                 </div>
                                 <h3 className="text-lg text-black mt-4">
@@ -1700,7 +1751,7 @@ export default function Schedule() {
                 </CollapsibleSection>
 
                 {/* Day 10 */}
-                <CollapsibleSection id="day10" title="Day 10 返程">
+                <CollapsibleSection id="day10" title="Day 10 返程 (3.9)">
                     <div className="space-y-12">
                         {/* Step 1 */}
                         <div className="flex flex-col md:flex-row">
@@ -1732,7 +1783,7 @@ export default function Schedule() {
                                     <img
                                         src={jr5}
                                         alt="jr5"
-                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
+                                        className="rounded-lg shadow-md w-full h-auto"
                                     />
                                 </div>
 
@@ -1766,6 +1817,28 @@ export default function Schedule() {
                                 </a>
                             </div>
                         </div>
+
+                        {/* Step 3 */}
+                        <div className="flex flex-col md:flex-row">
+                            <div className="flex items-center md:flex-col md:items-center md:mr-4 mb-4 md:mb-0">
+                                <div className="w-8 h-8 flex items-center justify-center rounded-full bg-sky-700 text-white font-bold mr-2 md:mr-0 md:mb-2">
+                                    3
+                                </div>
+                                <div className="hidden md:block md:flex-1 w-px bg-gray-300" />
+                            </div>
+                            <div className="flex-1">
+                                <h2 className="text-xl font-semibold text-gray-800">东京➡️西雅图</h2>
+                                <div className="mt-4">
+                                    <img
+                                        src={flightBack2}
+                                        alt="flightBack2"
+                                        className="rounded-lg shadow-md w-full md:w-1/2 h-auto"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </CollapsibleSection>
                 <h1 className="text-2xl font-bold text-center mb-8">End</h1>
