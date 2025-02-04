@@ -63,8 +63,11 @@ function TravelChecklist() {
                                     className="flex items-center p-2 bg-white rounded-lg shadow-sm"
                                 >
                                     <span className="flex-1 text-gray-700">{item}</span>
-                                    {['护照', '手机', '身份证', '入境申报单', '现金', '充电宝', '单反相机+镜头', '内裤', '手套', '帽子', '剃须刀', '清洁器', '浴巾', '礼物'].includes(item) && (
+                                    {['护照', '手机', '身份证', '入境申报单', '现金', '充电宝', '单反相机+镜头', '内裤', '手套', '帽子', '剃须刀', '清洁器', '浴巾'].includes(item) && (
                                         <span >⭐</span>
+                                    )}
+                                    {item === '礼物' && (
+                                        <span>㊙️</span>
                                     )}
                                 </li>
                             ))}
