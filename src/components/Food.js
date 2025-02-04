@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
     MapPinIcon,
     SunIcon,
@@ -23,7 +23,7 @@ export default function RestaurantRecommendations() {
     }, {});
 
     return (
-        <div className="relative bg-white py-24">
+        <div className="relative bg-white py-16 lg:py-24">
             {/* Page heading */}
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="flex flex-row justify-between items-center">
@@ -31,17 +31,23 @@ export default function RestaurantRecommendations() {
                         <h2 className="text-4xl font-bold text-gray-900 sm:text-6xl">
                             必吃榜
                         </h2>
-                        <p className="my-6 text-lg text-gray-600">
-                            <SunIcon className="inline w-7 h-7 mx-2 text-indigo-500" />
-                            中午营业
-                            <MoonIcon className="inline w-7 h-7 mx-2 text-indigo-500" />晚上营业
+                        <p className="my-6 text-lg text-gray-600 flex flex-col sm:flex-row items-center gap-2">
+                            <span className="flex items-center">
+                                <SunIcon className="w-7 h-7 text-indigo-500 mr-2" />
+                                中午营业
+                            </span>
+                            <span className="flex items-center">
+                                <MoonIcon className="w-7 h-7 text-indigo-500 mr-2 sm:ml-4" />
+                                晚上营业
+                            </span>
                         </p>
                     </div>
+
                     {/* Filter button (large screen display) */}
-                    <div className="sm:flex space-x-4">
+                    <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                         <button
                             onClick={() => setFilterMode("region")}
-                            className={`px-4 py-2 rounded ${filterMode === "region"
+                            className={`w-full sm:w-auto px-4 py-2 rounded ${filterMode === "region"
                                 ? "bg-indigo-500 text-white"
                                 : "bg-gray-200 text-gray-700"
                                 }`}
@@ -50,7 +56,7 @@ export default function RestaurantRecommendations() {
                         </button>
                         <button
                             onClick={() => setFilterMode("category")}
-                            className={`px-4 py-2 rounded ${filterMode === "category"
+                            className={`w-full sm:w-auto px-4 py-2 rounded ${filterMode === "category"
                                 ? "bg-indigo-500 text-white"
                                 : "bg-gray-200 text-gray-700"
                                 }`}
@@ -63,11 +69,11 @@ export default function RestaurantRecommendations() {
 
             {/* Menu button displayed under small screen */}
             <button
-                className="lg:hidden fixed top-4 left-2 z-50 p-2 bg-gray-700 text-white rounded shadow"
+                className="lg:hidden fixed top-1 left-2 z-50 p-2 bg-gray-700 text-white rounded shadow"
                 onClick={() => setSidebarOpen(!sidebarOpen)}
             >
                 <svg
-                    className="w-6 h-6"
+                    className="w-3 h-3"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -141,7 +147,7 @@ export default function RestaurantRecommendations() {
                                     </div>
                                 )}
                                 {/* Restaurant card area */}
-                                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 w-3/4 mx-auto md:w-full">
+                                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 w-full mx-auto md:w-full">
                                     {groupedRestaurants[group].map((restaurant) => (
                                         <div
                                             key={restaurant.name}
@@ -174,20 +180,20 @@ export default function RestaurantRecommendations() {
                                                         <p className="mt-auto text-red-500 font-bold">
                                                             ￥{restaurant.price}/人
                                                         </p></div>
-                                                    <div className="mt-2 flex gap-4">
+                                                    <div className="mt-2 flex gap-1 md:gap-4"> {/* 修改gap间距 */}
                                                         <a
                                                             href={restaurant.locationUrl}
                                                             target="_blank"
                                                             rel="noopener noreferrer"
-                                                            className="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-3 rounded"
+                                                            className="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-2 md:px-3 rounded text-sm md:text-base" // 响应式padding和字体
                                                         >
-                                                            <MapPinIcon className="h-5 w-5 mr-1" aria-hidden="true" />
-                                                            <span>{restaurant.region}</span>
+                                                            <MapPinIcon className="h-5 w-5 mr-1 sm:block" />
+                                                            <span className="whitespace-nowrap">{restaurant.region}</span>
                                                         </a>
                                                         {!restaurant.reservationUrl ? (
                                                             <button
                                                                 disabled
-                                                                className="bg-gray-300 text-gray-600 font-semibold py-2 px-3 rounded cursor-not-allowed"
+                                                                className="bg-gray-300 text-gray-600 font-semibold py-2 px-2 md:px-3 rounded cursor-not-allowed text-sm md:text-base whitespace-nowrap" // 禁止换行
                                                             >
                                                                 walk-in
                                                             </button>
@@ -196,7 +202,7 @@ export default function RestaurantRecommendations() {
                                                                 href={restaurant.reservationUrl}
                                                                 target="_blank"
                                                                 rel="noopener noreferrer"
-                                                                className="bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded"
+                                                                className="bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-5 md:px-6 rounded text-sm md:text-base whitespace-nowrap" // 响应式padding
                                                             >
                                                                 预订
                                                             </a>

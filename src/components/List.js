@@ -36,7 +36,7 @@ const travelApps = [
 
 function TravelChecklist() {
     return (
-        <div className="mt-20 max-w-2xl mx-auto p-4 min-h-screen bg-gray-50">
+        <div className="mt-12 md:mt-20 max-w-2xl mx-auto p-4 min-h-screen bg-gray-50">
             {/* Header */}
             <h1 className="text-3xl font-bold text-black-600 mb-8 flex items-center gap-2">
                 ✈️ 旅行必备清单

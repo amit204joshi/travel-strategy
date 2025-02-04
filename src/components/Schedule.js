@@ -97,11 +97,11 @@ export default function Schedule() {
         <div className="relative">
             {/* Sidebar button*/}
             <button
-                className="lg:hidden fixed top-4 left-2 z-50 p-2 bg-gray-700 text-white rounded shadow"
+                className="lg:hidden fixed top-1 left-2 z-50 p-2 bg-gray-700 text-white rounded shadow"
                 onClick={() => setSidebarOpen(!sidebarOpen)}
             >
                 <svg
-                    className="w-6 h-6"
+                    className="w-3 h-3"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -152,10 +152,14 @@ export default function Schedule() {
 
             {/*Main content */}
 
-            <main className="mx-auto max-w-screen-lg px-4 py-8 px-4 mt-16">
+            <main className="mx-auto max-w-screen-lg px-4 pt-8 px-4 mt-4 lg:mt-16">
                 <h1 className="text-2xl font-bold text-center mb-8">Start</h1>
                 {/*Day 1*/}
-                <CollapsibleSection id="day1" title="Day 1 启程 (2.27-2.28)">
+                <CollapsibleSection id="day1" title={
+                    <span className="text-lg sm:text-xl md:text-2xl font-bold">
+                        Day 1 启程 (2.27-2.28)
+                    </span>
+                }>
                     <div className="space-y-12">
                         {/* Step 1 */}
                         <div className="flex flex-col md:flex-row">
@@ -256,7 +260,7 @@ export default function Schedule() {
                                         <img
                                             src={hotel1}
                                             alt="hotel1"
-                                            className="rounded-lg shadow-md w-full h-96"
+                                            className="rounded-lg shadow-md w-full h-auto"
                                         />
                                     </div>
                                     <div className="md:w-1/2 mt-4 md:mt-0 w-full h-64 md:h-96">
@@ -277,7 +281,11 @@ export default function Schedule() {
                 </CollapsibleSection>
 
                 {/* Day 2 */}
-                <CollapsibleSection id="day2" title="Day 2 札幌一日游 (3.1)">
+                <CollapsibleSection id="day2" title={
+                    <span className="text-lg sm:text-xl md:text-2xl font-bold">
+                        Day 2 札幌一日游 (3.1)
+                    </span>
+                }>
                     <div className="space-y-12">
                         <div className="flex flex-col md:flex-row">
                             <div className="flex items-center md:flex-col md:items-center md:mr-4 mb-4 md:mb-0">
@@ -426,7 +434,11 @@ export default function Schedule() {
                 </CollapsibleSection>
 
                 {/* Day 3 */}
-                <CollapsibleSection id="day3" title="Day 3 小樽一日游 (3.2)">
+                <CollapsibleSection id="day3" title={
+                    <span className="text-lg sm:text-xl md:text-2xl font-bold">
+                        Day 3 小樽一日游 (3.2)
+                    </span>
+                }>
                     <div className="space-y-12">
                         <div className="flex flex-col md:flex-row">
                             <div className="flex items-center md:flex-col md:items-center md:mr-4 mb-4 md:mb-0">
@@ -588,7 +600,11 @@ export default function Schedule() {
                 </CollapsibleSection>
 
                 {/* Day 4 */}
-                <CollapsibleSection id="day4" title="Day 4 登别温泉 (3.3)">
+                <CollapsibleSection id="day4" title={
+                    <span className="text-lg sm:text-xl md:text-2xl font-bold">
+                        Day 4 登别温泉 (3.3)
+                    </span>
+                }>
                     <div className="space-y-12">
                         <div className="flex flex-col md:flex-row">
                             <div className="flex items-center md:flex-col md:items-center md:mr-4 mb-4 md:mb-0">
@@ -682,7 +698,11 @@ export default function Schedule() {
                 </CollapsibleSection>
 
                 {/* Day 5 */}
-                <CollapsibleSection id="day5" title="Day 5 前往东京 (3.4)">
+                <CollapsibleSection id="day5" title={
+                    <span className="text-lg sm:text-xl md:text-2xl font-bold">
+                        Day 5 前往东京 (3.4)
+                    </span>
+                }>
                     <div className="space-y-12">
                         <div className="flex flex-col md:flex-row">
                             <div className="flex items-center md:flex-col md:items-center md:mr-4 mb-4 md:mb-0">
@@ -846,7 +866,11 @@ export default function Schedule() {
                 </CollapsibleSection>
 
                 {/* Day 6 */}
-                <CollapsibleSection id="day6" title="Day 6 东京海洋迪士尼 (3.5)">
+                <CollapsibleSection id="day6" title={
+                    <span className="text-lg sm:text-xl md:text-2xl font-bold">
+                        Day 6 东京海洋迪士尼 (3.5)
+                    </span>
+                }>
                     <div className="space-y-12">
                         <div className="flex flex-col md:flex-row">
                             <div className="flex items-center md:flex-col md:items-center md:mr-4 mb-4 md:mb-0">
@@ -985,7 +1009,11 @@ export default function Schedule() {
                 </CollapsibleSection>
 
                 {/* Day 7 */}
-                <CollapsibleSection id="day7" title="Day 7 动漫巡礼 (3.6)">
+                <CollapsibleSection id="day7" title={
+                    <span className="text-lg sm:text-xl md:text-2xl font-bold">
+                        Day 7 动漫巡礼 (3.6)
+                    </span>
+                }>
                     <div className="space-y-12">
                         <div className="flex flex-col md:flex-row">
                             <div className="flex items-center md:flex-col md:items-center md:mr-4 mb-4 md:mb-0">
@@ -1115,7 +1143,11 @@ export default function Schedule() {
                 </CollapsibleSection>
 
                 {/* Day 8 */}
-                <CollapsibleSection id="day8" title="Day 8 逛街买买买 (3.7)">
+                <CollapsibleSection id="day8" title={
+                    <span className="text-lg sm:text-xl md:text-2xl font-bold">
+                        Day 8 逛街买买买 (3.7)
+                    </span>
+                }>
                     <div className="space-y-12">
                         <div className="flex flex-col md:flex-row">
                             <div className="flex items-center md:flex-col md:items-center md:mr-4 mb-4 md:mb-0">
@@ -1204,7 +1236,11 @@ export default function Schedule() {
                 </CollapsibleSection>
 
                 {/* Day 9 */}
-                <CollapsibleSection id="day9" title="Day 9 富士山一日游 (3.8)">
+                <CollapsibleSection id="day9" title={
+                    <span className="text-lg sm:text-xl md:text-2xl font-bold">
+                        Day 9 富士山一日游 (3.8)
+                    </span>
+                }>
                     <div className="space-y-12">
                         <div className="flex flex-col md:flex-row">
                             <div className="flex items-center md:flex-col md:items-center md:mr-4 mb-4 md:mb-0">
@@ -1354,7 +1390,11 @@ export default function Schedule() {
                 </CollapsibleSection>
 
                 {/* Day 10 */}
-                <CollapsibleSection id="day10" title="Day 10 返程 (3.9)">
+                <CollapsibleSection id="day10" title={
+                    <span className="text-lg sm:text-xl md:text-2xl font-bold">
+                        Day 10 返程 (3.9)
+                    </span>
+                }>
                     <div className="space-y-12">
                         <div className="flex flex-col md:flex-row">
                             <div className="flex items-center md:flex-col md:items-center md:mr-4 mb-4 md:mb-0">
@@ -1455,6 +1495,6 @@ export default function Schedule() {
                 </CollapsibleSection>
                 <h1 className="text-2xl font-bold text-center mb-8">End</h1>
             </main>
-        </div>
+        </div >
     );
 }
