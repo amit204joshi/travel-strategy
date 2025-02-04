@@ -4,7 +4,7 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Schedule from "./components/Schedule";
-import List from "./components/List"
+import List from "./components/List";
 
 export default function App() {
   return (

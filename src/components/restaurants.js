@@ -23,7 +23,7 @@ const restaurants = [
         description:
             "成吉思汗烤肉，120分钟自助，酒水畅饮",
         image: "https://play-lh.googleusercontent.com/VAKBmY4E6v8y4Ws0sYxDUSjpBG9yxllK0rQhwXkgC7XF6Elaw24itOYwzr9Q-vLpDE4d=w480-h960-rw",
-        reservationUrl: "https://sapporo-bier-garten-reserve.com/reserve/hall",
+        reservationUrl: "https://sapporo-bier-garten-reserve.com/reserve/index",
         locationUrl: "https://maps.app.goo.gl/PKprXTo1jYVngQto8",
         icon: BuildingStorefrontIcon,
         price: "150-200",
